@@ -23,5 +23,17 @@ public interface IQuestionService {
 	 * @throws Exception
 	 */
 	List<QuestionVM> selectAllQuestion() throws Exception; 
+	/**
+	 * 一对多关联的保存或更新操作
+	 * @param questionVM
+	 * @throws Exception
+	 */
+	void saveOrUpdateQuestionVM(QuestionVM questionVM) throws Exception;
+	/**
+	 * 根据id删除问题，删除问题的同时删除选项信息(这种情况下可以不在代码层次上做操作，在数据库中设置级联)
+	 * @throws Exception
+	 */
+	void deleteQuestionById(long id) throws Exception;
+
 
 }

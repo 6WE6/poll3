@@ -15,7 +15,7 @@ import com.briup.apps.poll.util.MsgResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-@Api(description="课程相关接口")
+@Api(description="班级相关接口")
 @RestController
 @RequestMapping("/clazz")
 public class ClazzController {

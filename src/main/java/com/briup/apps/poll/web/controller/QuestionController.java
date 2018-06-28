@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -52,6 +53,41 @@ public class QuestionController {
 			e.printStackTrace();
 			return MsgResponse.error(e.getMessage());
 		}
+	}
+	/**
+	 * 通过id删除问题信息，删除题目的同时会把题目下所有的选项也给删除掉
+	 * @param id
+	 * @return
+	 */
+	@ApiOperation(value="通过id删除问题",
+			notes="删除题目的同时会把题目下所有的选项也给删除掉")
+	@GetMapping("deleteQuestionById")
+	public MsgResponse deleteQuestionById(long id){
+		try {
+			questionService.deleteQuestionById(id);
+			return MsgResponse.success("删除成功", null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+	}
+	/**
+	 * 保存或修改问题
+	 * @param questionVM
+	 * @return
+	 */
+	@ApiOperation(value="保存或修改问题",
+			notes="当id不为空表示修改，否则表示更新，保存和更新的时候需要提交选项数据")
+	@PostMapping("saveOrUpdateQuestion")
+	public MsgResponse saveOrUpdateQuestion(QuestionVM questionVM){
+		try {
+			questionService.saveOrUpdateQuestionVM(questionVM);
+			return MsgResponse.success("保存成功", null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+		
 	}
 
 }
