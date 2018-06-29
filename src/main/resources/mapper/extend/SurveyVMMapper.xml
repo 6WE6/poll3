@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.apps.poll.dao.extend.SurveyVMMapper">
+    <!-- 基础属性查询  id status code surveyDate course_id user_id calzz_id question_id-->
+    <select id="selectAllSurvey" resultMap="SurveyVMResult">
+        select * from poll_survey
+    </select>
+    
+    <!-- 查询的结果和上面的select一样，只是略有不同 -->
+    <select id="selectSurveyById" parameterType="long" resultMap="SurveyVMResult">
+        select * from poll_survey where id = #{id}
+        <!-- id status code surveyDate course_id user_id calzz_id question_id-->
+    </select>
+    
+    <!-- 定义结果集 -->
+    <resultMap type="com.briup.apps.poll.bean.extend.SurveyVM" id="SurveyVMResult">
+        <!-- 基础属性映射 -->
+        <id column="id" property="id"/>
+        <result column="status" property="status"/>
+        <result column="code" property="code"/>
+        <result column="surveyDate" property="surveydate"/>
+        <!-- 多对一中的关联属性 -->
+        <association column="clazz_id" property="clzzVM" select="com.briup.apps.poll.dao.ClazzMapper.selectClazzById"/>
+        <association column="course_id" property="course" select="com.briup.apps.poll.dao.CourseMapper.selectByPrimaryKey"></association>
+        <association column="user_id" property="user" select="com.briup.apps.poll.dao.UserMapper.selectByPrimaryKey"></association>
+        <association column="questionnaire_id" property="questionnaireVM" select="com.briup.apps.poll.dao.extnd.QuestionnaireVMMapper.selecQunById"></association>
+    </resultMap>
+    
+</mapper>

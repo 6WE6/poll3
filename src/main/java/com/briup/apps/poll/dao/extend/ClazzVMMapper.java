@@ -14,5 +14,11 @@ public interface ClazzVMMapper {
 	 * @return
 	 */
 	List<ClazzVM> selectAllClazz();
+	/**
+	 * 通过id查询ClazzVM的信息
+	 * @param id
+	 * @return
+	 */
+	ClazzVM selectClazzById(long id);
 
 }
