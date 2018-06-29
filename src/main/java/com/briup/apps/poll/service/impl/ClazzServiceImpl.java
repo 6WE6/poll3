@@ -40,6 +40,19 @@ public class ClazzServiceImpl implements IClazzService{
 	public List<ClazzVM> selectAllClazz() throws Exception {
 		return clazzVMMapper.selectAllClazz();
 	}
+
+	/**
+	 * 执行插入或更新操作(多对一)
+	 */
+	@Override
+	public void saveOrUpdteClazz(Clazz clazz) throws Exception {
+		if(clazz.getId()!=null){
+			clazzMapper.updateByPrimaryKey(clazz);	
+		}else{
+			clazzMapper.insert(clazz);
+		}
+		
+	}
 	
 
 }

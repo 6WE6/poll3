@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -48,6 +49,23 @@ public class ClazzController {
 		try {
 			List<ClazzVM> list = clazzService.selectAllClazz();
 			return MsgResponse.success("查找成功！", list);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+	}
+	/**
+	 * 保存或修改班级信息
+	 * @param clazz
+	 * @return
+	 */
+	@ApiOperation(value="保存或修改班级信息",notes="如果参数中包含id则表示修改操作，否则表示保存操作")
+	@PostMapping("saveOrUpdateClazz")
+	public MsgResponse saveOrUpdateClazz(Clazz clazz){
+		try {
+			clazzService.saveOrUpdteClazz(clazz);
+			return MsgResponse.success("success", null);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

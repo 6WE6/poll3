@@ -14,6 +14,12 @@ public interface QuestionVMMapper {
 	 * @return
 	 */
 	List<QuestionVM> selectAllQuestion();
+	/**
+	 * 通过问卷id查询问题
+	 * @param id
+	 * @return
+	 */
+	List<QuestionVM> selectByQuestionnaireId(long id);
 	
 
 }

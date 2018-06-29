@@ -22,5 +22,9 @@ public interface IClazzService {
 	 * @throws Exception
 	 */
 	List<ClazzVM> selectAllClazz() throws Exception;
+	/**
+	 * 保存或修改班级信息(多对一)
+	 */
+	void saveOrUpdteClazz(Clazz clazz) throws Exception;
 
 }

@@ -5,6 +5,11 @@
     <select id="selectAllQuestion" resultMap="QuestionVMResult">
         select * from poll_question
     </select>
+    <!-- 通过问卷id查询问题 -->
+    <select id="selectByQuestionnaireId" parameterType="long" resultMap="QuestionVMResult">
+        select * from poll_question where id in(
+            select question_id from poll_questionnaire_question where questionnaire_id = #{id})
+    </select>
     <!-- 定义结果集 -->
     <resultMap type="com.briup.apps.poll.bean.extend.QuestionVM" id="QuestionVMResult">
         <!-- 基础属性映射 -->
