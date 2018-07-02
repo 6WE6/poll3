@@ -23,7 +23,7 @@ public interface IClazzService {
 	 */
 	List<ClazzVM> selectAllClazz() throws Exception;
 	/**
-	 * 保存或修改班级信息(多对一)
+	 * 保存或修改班级信息(多对一)，年级id和chargeid直接维护在clazz表中
 	 */
 	void saveOrUpdteClazz(Clazz clazz) throws Exception;
 

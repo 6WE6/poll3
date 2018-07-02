@@ -42,7 +42,7 @@ public class ClazzServiceImpl implements IClazzService{
 	}
 
 	/**
-	 * 执行插入或更新操作(多对一)
+	 * 执行插入或更新操作(多对一)，年级id和chargeid直接维护在clazz表中
 	 */
 	@Override
 	public void saveOrUpdteClazz(Clazz clazz) throws Exception {

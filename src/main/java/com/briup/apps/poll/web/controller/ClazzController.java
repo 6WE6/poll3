@@ -56,7 +56,7 @@ public class ClazzController {
 		}
 	}
 	/**
-	 * 保存或修改班级信息
+	 * 保存或修改班级信息，年级id和chargeid直接维护在clazz表中
 	 * @param clazz
 	 * @return
 	 */
