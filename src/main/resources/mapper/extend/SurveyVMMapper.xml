@@ -16,14 +16,15 @@
     <resultMap type="com.briup.apps.poll.bean.extend.SurveyVM" id="SurveyVMResult">
         <!-- 基础属性映射 -->
         <id column="id" property="id"/>
+        <result column="average" property="average"/>
         <result column="status" property="status"/>
         <result column="code" property="code"/>
         <result column="surveyDate" property="surveydate"/>
         <!-- 多对一中的关联属性 -->
-        <association column="clazz_id" property="clzzVM" select="com.briup.apps.poll.dao.ClazzMapper.selectClazzById"/>
+        <association column="clazz_id" property="clazzVM" select="com.briup.apps.poll.dao.extend.ClazzVMMapper.selectClazzById"/>
         <association column="course_id" property="course" select="com.briup.apps.poll.dao.CourseMapper.selectByPrimaryKey"></association>
         <association column="user_id" property="user" select="com.briup.apps.poll.dao.UserMapper.selectByPrimaryKey"></association>
-        <association column="questionnaire_id" property="questionnaireVM" select="com.briup.apps.poll.dao.extnd.QuestionnaireVMMapper.selecQunById"></association>
+        <association column="questionnaire_id" property="questionnaireVM" select="com.briup.apps.poll.dao.extend.QuestionnaireVMMapper.selectQunById"></association>
     </resultMap>
     
 </mapper>

@@ -83,4 +83,13 @@ public class SurveyServiceImpl implements ISurveyService{
 		}	
 	}
 
+	/**
+	 * 通过id查询课调(单表)
+	 */
+	@Override
+	public Survey findSurveyById(long id) throws Exception {
+		// TODO Auto-generated method stub
+		return surveyMapper.selectByPrimaryKey(id);
+	}
+
 }

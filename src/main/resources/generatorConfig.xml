@@ -34,7 +34,9 @@
       <property name="enableSubPackages" value="true" />
     </javaClientGenerator>
 
-	<!-- 映射配置 -->
+
+    <!-- 关联映射 -->
+    <table tableName="poll_survey" domainObjectName="Survey" ></table> 
 	<table tableName="poll_answers" domainObjectName="Answers" ></table>
 	<table tableName="poll_survey" domainObjectName="Survey" ></table>
     <table tableName="poll_school" domainObjectName="School" ></table>
@@ -47,5 +49,6 @@
     <table tableName="poll_question" domainObjectName="Question" ></table>
     <table tableName="poll_questionnaire" domainObjectName="Questionnaire" ></table>
     <table tableName="poll_questionnaire_question" domainObjectName="QuestionnaireQuestion" ></table>
+
   </context>
 </generatorConfiguration>

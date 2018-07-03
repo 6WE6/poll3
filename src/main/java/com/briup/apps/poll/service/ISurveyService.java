@@ -43,6 +43,13 @@ public interface ISurveyService {
 	 * @throws Exception
 	 */
 	void batchDeleteSurvey(long[] ids) throws Exception;
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 */
+	Survey findSurveyById(long id) throws Exception;
 	
 
 }

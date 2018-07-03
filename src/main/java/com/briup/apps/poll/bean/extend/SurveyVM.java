@@ -12,6 +12,7 @@ import io.swagger.annotations.ApiModel;
 public class SurveyVM {
 	//survey的基础属性
     private Long id;
+    private double average;
     private String status;
     private String code;
     private String surveydate;
@@ -69,6 +70,12 @@ public class SurveyVM {
 	}
 	public void setQuestionnaireVM(QuestionnaireVM questionnaireVM) {
 		this.questionnaireVM = questionnaireVM;
+	}
+	public double getAverage() {
+		return average;
+	}
+	public void setAverage(double average) {
+		this.average = average;
 	}
 	
 }
